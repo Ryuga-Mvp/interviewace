@@ -5,6 +5,7 @@ import com.interviewace.dto.QuestionResponse;
 import com.interviewace.service.QuestionService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class QuestionController {
     private final QuestionService questionService;
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public QuestionResponse createQuestion(@Valid @RequestBody QuestionRequest request){
         return questionService.createQuestion(request);
     }
@@ -40,11 +42,13 @@ public class QuestionController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public QuestionResponse updateQuestion(@PathVariable Long id, @RequestBody QuestionRequest request){
         return questionService.updateQuestion(id, request);
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteQuestion(@PathVariable Long id){
         questionService.deleteQuestion(id);
     }

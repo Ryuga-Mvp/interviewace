@@ -4,6 +4,7 @@ import com.interviewace.dto.AuthResponse;
 import com.interviewace.dto.LoginRequest;
 import com.interviewace.dto.RegisterRequest;
 import com.interviewace.entity.Users;
+import com.interviewace.enums.Role;
 import com.interviewace.repository.UserRepository;
 import com.interviewace.service.AuthService;
 import com.interviewace.util.JwtService;
@@ -34,7 +35,7 @@ public class AuthServiceImpl implements AuthService {
                 .name(request.getName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role("USER")
+                .role(Role.USER)
                 .createdAt(LocalDateTime.now())
                 .build();
 

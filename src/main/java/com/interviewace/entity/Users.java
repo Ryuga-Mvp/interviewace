@@ -1,5 +1,6 @@
 package com.interviewace.entity;
 
+import com.interviewace.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
@@ -27,7 +28,8 @@ public class Users {
 
     private String password;
 
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     private LocalDateTime createdAt;
 
