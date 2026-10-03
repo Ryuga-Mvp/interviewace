@@ -63,7 +63,7 @@ public class SubmissionServiceImpl implements SubmissionService {
 
         SubmissionResponse response = SubmissionResponse.builder()
                 .id(submission.getId())
-                .qusetionId(submission.getQuestion().getId())
+                .questionId(submission.getQuestion().getId())
                 .userAnswer(submission.getUserAnswer())
                 .correct(submission.getCorrect())
                 .score(submission.getScore())

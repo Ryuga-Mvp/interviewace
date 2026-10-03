@@ -11,7 +11,7 @@ public class SubmissionResponse {
 
     private Long id;
 
-    private Long qusetionId;
+    private Long questionId;
 
     private String userAnswer;
 
